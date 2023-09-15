@@ -55,6 +55,7 @@ else{
 if(weatherStatus === "clear"){
     console.log("We are clear for takeoff!")
 }
+else if(!weatherStatus === "clear"){}
 // Verify shuttle launch can proceed based on above conditions
 console.log(date);
 console.log(time);

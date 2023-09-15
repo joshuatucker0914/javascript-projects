@@ -33,5 +33,8 @@ console.log("CAT gene found.")
 //3) Use .slice() to print out the fifth gene (set of 3 characters) from the DNA strand.
 let dnaSliced = dnaTwo.slice();
 //4) Use a template literal to print, "The DNA strand is ___ characters long."
-
+console.log(`The DNA strand is ${dnaTwo.length} characters long.`)
 //5) Just for fun, apply methods to ``dna`` and use another template literal to print, 'taco cat'.
+let dnaTwoBecomesTC = dnaTwo.slice(0,1);
+let dawnOfTacoCat = dnaTwoBecomesTC.replace("T","taco cat");
+console.log(`Welcome to the birth of ${dawnOfTacoCat} our supreme ruler! All hail ${dawnOfTacoCat}!`);
