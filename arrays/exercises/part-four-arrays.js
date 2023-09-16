@@ -16,4 +16,4 @@ console.log(holdCabinet1.reverse());
 console.log(holdCabinet2.sort());
 //Test for change
 console.log(holdCabinet1);
-console.log(holdCabinet2); // The methods changed the both arrays.
+console.log(holdCabinet2); // The methods changed both arrays.
