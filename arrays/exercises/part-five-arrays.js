@@ -14,8 +14,8 @@ let arr = ['B', 'n', 'n', 5];
 //4) We can take a comma-separated string and convert it into a modifiable array. Try it! Alphabetize the cargoHold string, and then combine the contents into a new string.
 let cargoHold = "water,space suits,food,plasma sword,batteries";
 let cargoHoldArray = cargoHold.split(",");
-console.log(cargoHoldArray);
-cargoHoldArray.sort();
-console.log(cargoHoldArray);
-let theNewString = cargoHoldArray.join(", ");
-console.log(theNewString);
+    console.log(cargoHoldArray);
+    cargoHoldArray.sort(); //Alphabetizing
+    console.log(cargoHoldArray);
+let theNewString = cargoHoldArray.join(", "); //Combining of contents
+    console.log(theNewString);
