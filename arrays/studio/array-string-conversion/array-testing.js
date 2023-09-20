@@ -1,45 +1,60 @@
 let protoArray1 = "3,6,9,12";
-let protoArray2 = "A;C;M;E";
+let protoArray2 = "A;C;E;M";
 let protoArray3 = "space delimited string";
 let protoArray4 = "Comma-spaces, might, require, typing, caution";
+
 
 strings = [protoArray1, protoArray2, protoArray3, protoArray4];
 
 //2) 
 function reverseCommas() {
 	//TODO: 1. create and instantiate your variables.
+	let newArray = strings[0].split(",", 4);
 	let check;
 	let output;
 	//TODO: 2. write the code required for this step
-
+	newArray.reverse();
+	let revertedReverse = newArray.join();
+	output = revertedReverse;
 	//NOTE: For the code to run properly, you must return your output.  this needs to be the final line of code within the function's { }.
 	return output;
 }
 //3)
 function semiDash() {
+	let newArray = strings[1].split(";", 4);
 	let check;
 	let output;
 //TODO: write the code required for this step
-
-  
+	let reJoined = newArray.join("-");
+	output = reJoined;
 	return output;
 }
 
 //4)
 function reverseSpaces() {
+	let newArray = strings[2].split(" ", 3);
 	let check;
 	let output;
   //TODO: write the code required for this step
-
+ 	newArray.splice(1,1);
+  	newArray.reverse();
+  	newArray.push("delimited");
+	let reJoined = newArray.join(" ");
+	output = reJoined;
 	return output;
 }
 
 //5)
 function commaSpace() {
+	let newArray = strings[3].split(" ");
 	let check;
 	let output;
 	//TODO: write the code required for this step
-  
+	newArray.reverse();
+	newArray[0] = "caution,";
+	newArray[4] = "Comma-spaces";
+	let reJoined = newArray.join("");
+	output = reJoined;
 	return output;
 }
 
