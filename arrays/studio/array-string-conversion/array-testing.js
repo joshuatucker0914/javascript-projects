@@ -15,7 +15,6 @@ function reverseCommas() {
 	//NOTE: For the code to run properly, you must return your output.  this needs to be the final line of code within the function's { }.
 	return output;
 }
-
 //3)
 function semiDash() {
 	let check;
