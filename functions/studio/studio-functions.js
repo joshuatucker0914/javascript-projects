@@ -12,11 +12,13 @@ function reverseCharacters(str){
         str = String(str);
         let numberArray = str.split('');
         let reversedNumberArray = numberArray.reverse();
-        return reversedNumberArray.join('');
+        let reversedValue =  reversedNumberArray.join('');
+        return Number(reversedValue);
     }
 }
-let varibleHolder = 500;
+let varibleHolder = 566778;
 console.log(reverseCharacters(varibleHolder));
+
 // 1. Define the function as reverseCharacters. Give it one parameter, which will be the string to reverse.
 // 2. Within the function, split the string into an array, then reverse the array.
 // 3. Use join to create the reversed string and return that string from the function.
