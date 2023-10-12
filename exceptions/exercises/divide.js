@@ -5,3 +5,12 @@
 // However, if the denominator is zero you should throw the error, "Attempted to divide by zero."
 
 // Code your divide function here:
+
+function divide(n, d){
+    if(d === 0){
+        throw Error("Attempted to divide by zero");
+    }
+    return n/d;
+}
+
+console.log(divide(10,0));
