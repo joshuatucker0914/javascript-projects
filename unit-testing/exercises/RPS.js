@@ -15,6 +15,8 @@ function whoWon(player1,player2){
    if (player1 === 'scissors' && player2 === 'rock '){
      return 'Player 2 wins!';
    }
- 
+   
    return 'Player 1 wins!';
  }
+
+module.exports = whoWon;
