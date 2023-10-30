@@ -1,6 +1,5 @@
 // Write your JavaScript code here.
 window.onload = function () {
-    // Get references to elements
     const takeoffButton = document.getElementById("takeoff");
     const landingButton = document.getElementById("landing");
     const abortButton = document.getElementById("missionAbort");
@@ -13,7 +12,11 @@ window.onload = function () {
     const spaceShuttleHeight = document.getElementById("spaceShuttleHeight");
     const rocket = document.getElementById("rocket");
 
-    // Attaching a click event handler to the "Take off" button
+    // Initialize the rocket's position to 0px from the top and left
+    rocket.style.position = "absolute";
+    rocket.style.top = "0px";
+    rocket.style.left = "0px";
+
     takeoffButton.addEventListener("click", function () {
         const confirmMessage = "Confirm that the shuttle is ready for takeoff.";
         const isReadyForTakeoff = window.confirm(confirmMessage);
@@ -26,15 +29,15 @@ window.onload = function () {
         }
     });
 
-    // Attaching a click event handler to the "Land" button
     landingButton.addEventListener("click", function () {
         window.alert("The shuttle is landing. Landing gear engaged.");
         flightStatus.innerHTML = "The shuttle has landed";
         shuttleBackground.style.backgroundColor = "green";
         spaceShuttleHeight.textContent = 0;
+        rocket.style.top = "0px"; // Reset the rocket's position
+        rocket.style.left = "0px"; // Reset the rocket's position
     });
 
-    // Attaching a click event handler to the "Abort Mission" button
     abortButton.addEventListener("click", function () {
         const confirmMessage = "Confirm that you want to abort the mission.";
         const isMissionAborted = window.confirm(confirmMessage);
@@ -43,28 +46,41 @@ window.onload = function () {
             flightStatus.innerHTML = "Mission aborted";
             shuttleBackground.style.backgroundColor = "green";
             spaceShuttleHeight.textContent = 0;
+            rocket.style.top = "0px"; // Reset the rocket's position
+            rocket.style.left = "0px"; // Reset the rocket's position
         }
     });
 
-    // Attaching click event handlers to directional buttons (Up, Down, Right, Left)
     upButton.addEventListener("click", function () {
-        rocket.style.top = parseInt(rocket.style.top, 10) - 10 + "px";
-        const currentHeight = parseInt(spaceShuttleHeight.textContent, 10);
-        spaceShuttleHeight.textContent = currentHeight + 10000;
+        const currentTop = parseInt(rocket.style.top, 10);
+        if (currentTop - 10 >= 0) {
+            rocket.style.top = currentTop - 10 + "px";
+            const currentHeight = parseInt(spaceShuttleHeight.textContent, 10);
+            spaceShuttleHeight.textContent = currentHeight + 10000;
+        }
     });
 
     downButton.addEventListener("click", function () {
-        rocket.style.top = parseInt(rocket.style.top, 10) + 10 + "px";
-        const currentHeight = parseInt(spaceShuttleHeight.textContent, 10);
-        spaceShuttleHeight.textContent = currentHeight - 10000;
+        const currentTop = parseInt(rocket.style.top, 10);
+        if (currentTop + 10 <= shuttleBackground.clientHeight - rocket.clientHeight) {
+            rocket.style.top = currentTop + 10 + "px";
+            const currentHeight = parseInt(spaceShuttleHeight.textContent, 10);
+            spaceShuttleHeight.textContent = currentHeight - 10000;
+        }
     });
 
     rightButton.addEventListener("click", function () {
-        rocket.style.left = parseInt(rocket.style.left, 10) + 10 + "px";
+        const currentLeft = parseInt(rocket.style.left, 10);
+        if (currentLeft + 10 <= shuttleBackground.clientWidth - rocket.clientWidth) {
+            rocket.style.left = currentLeft + 10 + "px";
+        }
     });
 
     leftButton.addEventListener("click", function () {
-        rocket.style.left = parseInt(rocket.style.left, 10) - 10 + "px";
+        const currentLeft = parseInt(rocket.style.left, 10);
+        if (currentLeft - 10 >= 0) {
+            rocket.style.left = currentLeft - 10 + "px";
+        }
     });
 };
 
