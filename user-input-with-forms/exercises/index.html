@@ -3,16 +3,59 @@
   <head>
     <meta charset="utf-8">
     <title>Rocket Simulation</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <style>
       label { display: block; margin-bottom: 7px;}
     </style>
   </head>
   <body>
     <!-- TODO: add form here -->
+    <form action="https://handlers.education.launchcode.org/request-parrot" method="POST">
+      <label for="testName">Test Name:</label>
+      <input type="text" id="testName" name="testName" required>
     
+      <br>
+    
+      <label for="testDate">Test Date (mm/dd/yyyy):</label>
+      <input type="date" id="testDate" name="testDate" required>
+    
+      <br>
+    
+      <label for="rocketType">Rocket Type:</label>
+      <select id="rocketType" name="rocketType" required>
+        <option value="Brant">Brant</option>
+        <option value="Lynx">Lynx</option>
+        <option value="Orion">Orion</option>
+        <option value="Terrier">Terrier</option>
+      </select>
+    
+      <br>
+    
+      <label for="boosterCount">Number of Rocket Boosters (less than 10):</label>
+      <input type="number" id="boosterCount" name="boosterCount" min="1" max="9" required>
+    
+      <br>
+    
+      <p>Wind Rating:</p>
+      <label for="noWind">No Wind</label>
+      <input type="radio" id="noWind" name="windRating" value="0">
+    
+      <label for="mildWind">Mild Wind</label>
+      <input type="radio" id="mildWind" name="windRating" value="10">
+    
+      <label for="strongWind">Strong Wind</label>
+      <input type="radio" id="strongWind" name="windRating" value="20">
+    
+      <br>
+    
+      <label for="productionServers">Use production grade servers:</label>
+      <input type="checkbox" id="productionServers" name="productionServers" value="on">
+    
+      <br>
+    
+      <input type="submit" value="Submit">
+    </form>
 
-    <p>WARNING: This ONLY works in <b>replit</b> if this "result" page is opened in its own window. Click the icon that shows a box with an arrow coming out of it.
-    </p>
   </body>
   
 </html>
