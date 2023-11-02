@@ -1,0 +1,72 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <script>
+        // Function to handle setting the selected search engine
+        function setSearchEngine() {
+            // Get the selected radio button element
+            var selectedRadioButton = document.querySelector('input[name="engine"]:checked');
+            if (selectedRadioButton) {
+                // Get the value of the selected search engine
+                var selectedEngine = selectedRadioButton.value;
+                // Log the selected search engine to the console
+                console.log("Selected search engine: " + selectedEngine);
+            }
+        }
+
+        // Event listener for when the page loads
+        window.addEventListener("load", function(){
+            // Get the search form by its ID
+            var searchForm = document.getElementById("searchForm");
+            
+            // Add a submit event handler to the form
+            searchForm.addEventListener("submit", function(event) {
+                // Prevent the default form submission
+                event.preventDefault();
+
+                // Get the value of the selected search engine
+                var selectedEngine = document.querySelector('input[name="engine"]:checked').value;
+                
+                // Define the action URLs for each search engine
+                var actionUrls = {
+                    "Google": "https://www.google.com/search",
+                    "DuckDuckGo": "https://duckduckgo.com/",
+                    "Bing": "https://www.bing.com/search",
+                    "Ask": "https://www.ask.com/web"
+                };
+
+                // Set the action attribute of the form based on the selected search engine
+                searchForm.action = actionUrls[selectedEngine];
+                
+                // Call the setSearchEngine function to log the selected search engine
+                setSearchEngine();
+                
+                // Submit the form to the chosen search engine's URL
+                searchForm.submit();
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="searchForm">
+        <input type="text" name="q" id="searchQuery" required>
+        <p>Select a search engine:</p>
+        
+        <!-- Radio buttons for selecting a search engine with labels -->
+        <input type="radio" name="engine" id="google" value="Google">
+        <label for="google">Google</label>
+
+        <input type="radio" name="engine" id="duckduckgo" value="DuckDuckGo">
+        <label for="duckduckgo">DuckDuckGo</label>
+
+        <input type="radio" name="engine" id="bing" value="Bing">
+        <label for="bing">Bing</label>
+
+        <input type="radio" name="engine" id="ask" value="Ask">
+        <label for="ask">Ask</label>
+
+        <!-- Submit button to initiate the search -->
+        <input type="submit" value="Go!">
+    </form>
+</body>
+</html>
